@@ -1,0 +1,13 @@
+[type=adoc]
+:author: Tuanm
+
+:mermaidjs-url: https://mermaid.live/
+:adoc-docs: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+Đây là kho lưu trữ tài liệu kĩ thuật cho dự án BicycleBlueBook (BBB).
+
+=== Công cụ sử dụng
+- Vẽ biểu đồ: sử dụng trang {mermaidjs-url}[này] để vẽ biểu đồ các thể loại và xuất ra ảnh.
+
+=== Tài liệu tham khảo
+- Cú pháp AsciiDoc: tại {adoc-docs}[đây].
