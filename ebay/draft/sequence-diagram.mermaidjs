@@ -1,0 +1,104 @@
+sequenceDiagram
+    autonumber
+    eBay->>BBB: gửi thông báo "ItemSold" liên quan tới một item nào đó
+    BBB-->>eBay: phản hồi "Success"
+    BBB->>BBB: tìm các bản ghi tương ứng với item trong bảng inventory trên CSDL
+    loop các bản ghi inventory
+        BBB->>BBB: cập nhật status thành "Active"
+        BBB->>BBB: cập nhật stage thành "Sale Pending"
+    end
+    BBB->>BBB: tìm các bản ghi listing trên các chợ khác eBay
+    loop các bản ghi listing
+        BBB->>BBB: cập nhật status thành "De-Listed"
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL
+
+
+sequenceDiagram
+    autonumber
+    eBay->>BBB: gửi thông báo "AuctionCheckoutComplete" liên quan tới một item nào đó
+    BBB-->>eBay: phản hồi "Success"
+    BBB->>BBB: tìm các bản ghi tương ứng với item trong bảng inventory trên CSDL
+    loop các bản ghi inventory
+        BBB->>BBB: cập nhật status thành "Sold"
+        alt có thông tin liên quan tới shipment trong thông báo
+            BBB->>BBB: cập nhật stage thành "Processing"
+        else
+            BBB->>BBB: cập nhật stage thành "Awaiting pickup"
+        end
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL
+
+
+sequenceDiagram
+    autonumber
+    BBB->>BBB: tìm các bản ghi inventory có status là "Sold" và stage là "Awaiting pickup" trên CSDL
+    loop các bản ghi inventory
+        BBB->>eBay: lấy thông tin của item tương ứng thông qua API GetItemTransactions
+        eBay-->>BBB: trả về thông tin item hoặc lỗi
+        alt có lỗi xảy ra
+            BBB->>BBB: cập nhật stage thành "Sold"
+        else
+            opt trạng thái shipment trong thông tin eBay là "PickedUp"
+                BBB->>BBB: cập nhật stage thành "Sold"
+            end
+        end
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL
+
+
+sequenceDiagram
+    autonumber
+    BBB->>BBB: tìm các bản ghi inventory có status là "Sold" và stage là "Processing" trên CSDL
+    loop các bản ghi inventory
+        BBB->>UPS: lấy thông tin của shipment tương ứng thông qua trường tracking_count
+        UPS-->>BBB: trả về thông tin shipment hoặc lỗi
+        BBB->>BBB: dựa vào trạng thái trả về mà cập nhật stage thành tương ứng
+        Note right of BBB: Các stage có thể chuyển thành bao gồm:<br>- Delivered to customer<br>- Delivered to BBB<br>- In transit to customer<br>- In Transit to BBB<br>- Label created
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL
+
+
+sequenceDiagram
+    autonumber
+    BBB->>BBB: tìm các bản ghi inventory có cặp status-stage là "Sold"-"Processing" hoặc "Active"-"Sale Pending" trên chợ eBay (có market_listing trên eBay)
+    loop các bản ghi inventory
+        BBB->>eBay: lấy thông tin của item tương ứng thông qua API GetItemTransactions
+        eBay-->>BBB: trả về thông tin item hoặc lỗi
+        alt có lỗi xảy ra
+            alt stage hiện tại là "Processing"
+                BBB->>BBB: cập nhập stage thành "Shipped to Customer"
+            else
+                BBB->>BBB: tìm thông tin về sale liên quan
+                opt có sale
+                    BBB->>BBB: cập nhật stage thành "Processing"
+                end
+            end
+        else
+            BBB->>BBB: kiểm tra trạng thái huỷ đơn từ transaction của item
+            alt item có transaction
+                opt CancelStatus nằm trong danh sách trạng thái hủy đơn
+                    BBB->>BBB: đánh dấu item bị "hủy"
+                end
+            else
+                opt BuyerProtection là "ItemIneligible" và ListingStatus là "Completed"
+                    BBB->>BBB: đánh dấu item bị "hủy"
+                end
+            end
+            opt item bị đánh dấu "hủy" và stage hiện tại là "Sale Pending"
+                BBB->>BBB: cập nhật stage thành "Ready to be Listed"
+            end
+        end
+    end
+
+    loop các bản ghi inventory đã cập nhật
+        opt stage là "Ready to be Listed"
+            BBB->>BBB: cập nhật status thành "Listed"
+            BBB->>BBB: cập nhật status tất cả offer liên quan thành "Declined"
+            BBB->>BBB: cập nhật status của các listing trên chợ BBB thành "Listed"
+        end
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL
+
+    BBB->>eBay: de-list các item trên chợ eBay mà đã được bán trên chợ BBB
+
