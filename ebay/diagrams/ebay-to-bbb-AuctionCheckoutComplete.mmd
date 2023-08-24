@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    eBay->>BBB: gửi thông báo "AuctionCheckoutComplete" liên quan tới một item nào đó
+    BBB-->>eBay: phản hồi "Success"
+    BBB->>BBB: tìm các bản ghi tương ứng với item trong bảng inventory trên CSDL
+    loop các bản ghi inventory
+        BBB->>BBB: cập nhật status thành "Sold"
+        alt có thông tin liên quan tới shipment trong thông báo
+            BBB->>BBB: cập nhật stage thành "Processing"
+        else
+            BBB->>BBB: cập nhật stage thành "Awaiting pickup"
+        end
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL

@@ -1,0 +1,10 @@
+sequenceDiagram
+    autonumber
+    BBB->>BBB: tìm các bản ghi inventory có status là "Sold" và stage là "Processing" trên CSDL
+    loop các bản ghi inventory
+        BBB->>UPS: lấy thông tin của shipment tương ứng thông qua trường tracking_count
+        UPS-->>BBB: trả về thông tin shipment hoặc lỗi
+        BBB->>BBB: dựa vào trạng thái trả về mà cập nhật stage thành tương ứng
+        Note right of BBB: Các stage có thể chuyển thành bao gồm:<br>- Delivered to customer<br>- Delivered to BBB<br>- In transit to customer<br>- In Transit to BBB<br>- Label created
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL

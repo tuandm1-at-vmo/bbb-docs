@@ -1,0 +1,14 @@
+sequenceDiagram
+    autonumber
+    eBay->>BBB: gửi thông báo "ItemSold" liên quan tới một item nào đó
+    BBB-->>eBay: phản hồi "Success"
+    BBB->>BBB: tìm các bản ghi tương ứng với item trong bảng inventory trên CSDL
+    loop các bản ghi inventory
+        BBB->>BBB: cập nhật status thành "Active"
+        BBB->>BBB: cập nhật stage thành "Sale Pending"
+    end
+    BBB->>BBB: tìm các bản ghi listing trên các chợ khác eBay
+    loop các bản ghi listing
+        BBB->>BBB: cập nhật status thành "De-Listed"
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL

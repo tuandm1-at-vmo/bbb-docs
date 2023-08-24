@@ -1,0 +1,42 @@
+sequenceDiagram
+    autonumber
+    BBB->>BBB: tìm các bản ghi inventory có cặp status-stage là "Sold"-"Processing" hoặc "Active"-"Sale Pending" trên chợ eBay (có market_listing trên eBay)
+    loop các bản ghi inventory
+        BBB->>eBay: lấy thông tin của item tương ứng thông qua API GetItemTransactions
+        eBay-->>BBB: trả về thông tin item hoặc lỗi
+        alt có lỗi xảy ra
+            alt stage hiện tại là "Processing"
+                BBB->>BBB: cập nhập stage thành "Shipped to Customer"
+            else
+                BBB->>BBB: tìm thông tin về sale liên quan
+                opt có sale
+                    BBB->>BBB: cập nhật stage thành "Processing"
+                end
+            end
+        else
+            BBB->>BBB: kiểm tra trạng thái huỷ đơn từ transaction của item
+            alt item có transaction
+                opt CancelStatus nằm trong danh sách trạng thái hủy đơn
+                    BBB->>BBB: đánh dấu item bị "hủy"
+                end
+            else
+                opt BuyerProtection là "ItemIneligible" và ListingStatus là "Completed"
+                    BBB->>BBB: đánh dấu item bị "hủy"
+                end
+            end
+            opt item bị đánh dấu "hủy" và stage hiện tại là "Sale Pending"
+                BBB->>BBB: cập nhật stage thành "Ready to be Listed"
+            end
+        end
+    end
+
+    loop các bản ghi inventory đã cập nhật
+        opt stage là "Ready to be Listed"
+            BBB->>BBB: cập nhật status thành "Listed"
+            BBB->>BBB: cập nhật status tất cả offer liên quan thành "Declined"
+            BBB->>BBB: cập nhật status của các listing trên chợ BBB thành "Listed"
+        end
+    end
+    BBB->>BBB: lưu các bản ghi được cập nhật vào CSDL
+
+    BBB->>eBay: de-list các item trên chợ eBay mà đã được bán trên chợ BBB
