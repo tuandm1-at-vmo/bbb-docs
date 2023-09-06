@@ -1,6 +1,8 @@
 [type=adoc]
 :author: Tuanm
 
+:vi-docs: https://github.com/tuandm1-at-vmo/bbb-docs/blob/master/vi.README.adoc
+
 :mermaidjs-live: https://mermaid.live/
 :mermaidjs-docs: http://mermaid.js.org/intro/
 :adoc-homepage: https://asciidoctor.org/
@@ -11,20 +13,22 @@
 :vscode-asciidoc-extension: https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode
 
 = bbb-docs
-Đây là kho lưu trữ tài liệu kĩ thuật cho dự án BicycleBlueBook (BBB).
+This is a technical documentary repository for BicycleBlueBook development teams.
 
-== Công cụ sử dụng
-=== Vẽ biểu đồ
-==== Tính năng có sẵn
-Với các dịch vụ Git hỗ trợ (như {github-supports-mermaidjs}[GitHub], {gitlab-supports-mermaidjs}[GitLab] chẳng hạn), mình sử dụng cú pháp {mermaidjs-docs}[mermaidjs] trong các tệp định dạng kiểu MarkDown (như `.md`, `.adoc`) được luôn.
+{vi-docs}[Tiếng Việt]
+
+== Tools
+=== Diagrams
+==== Built-in features
+Almost Git providers ({github-supports-mermaidjs}[GitHub], {gitlab-supports-mermaidjs}[GitLab], etc.), we can use {mermaidjs-docs}[mermaidjs] directly as long as files saved in MarkDown formats (`.md`, `.adoc`).
 
 ==== Mermaid Live
-Mình có thể sử dụng trang {mermaidjs-live}[này] để vẽ biểu đồ các thể loại và xuất ra ảnh (ưu tiên SVG để đảm bảo chất lượng).
+We can use {mermaidjs-live}[this page] to draw diagrams and export them to images (prefer SVG for high quality).
 
-=== Soạn thảo
+=== Editors
 ==== Visual Studio Code
-Không cần phải nói nhiều, {vscode-homepage}[Visual Studio Code] (VS Code hay Code) là một phần mềm đơn giản, khá nhẹ, hỗ trợ rất tốt công việc soạn thảo, đặc biệt là viết tài liệu định dạng kiểu MarkDown. Với {adoc-homepage}[AsciiDoctor] (AsciiDoc hay adoc), mình nên cài thêm một tiện ích mở rộng {vscode-asciidoc-extension}[AsciiDoc] để hỗ trợ xem trước (preview) ngay tại trình soạn thảo, rất tiện.
+Indeed, {vscode-homepage}[Visual Studio Code] (VS Code or Code for short) is one of the most simple, light-weight (probably), well-supported editor, especifically for MarkDown typings. For {adoc-homepage}[AsciiDoctor] (AsciiDoc or adoc), we should install an extension named {vscode-asciidoc-extension}[AsciiDoc] for conviniently previewing editting documents.
 
-== Tài liệu tham khảo
-- Cú pháp AsciiDoctor: tại {adoc-docs}[đây].
-- Cú pháp Mermaid.js: tại {mermaidjs-docs}[đây].
+== References
+- AsciiDoctor syntax: {adoc-docs}[here].
+- Mermaid.js syntax: {mermaidjs-docs}[here].

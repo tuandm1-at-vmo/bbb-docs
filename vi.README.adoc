@@ -1,0 +1,30 @@
+[type=adoc]
+:author: Tuanm
+
+:mermaidjs-live: https://mermaid.live/
+:mermaidjs-docs: http://mermaid.js.org/intro/
+:adoc-homepage: https://asciidoctor.org/
+:adoc-docs: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+:github-supports-mermaidjs: https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
+:gitlab-supports-mermaidjs: https://docs.gitlab.com/ee/user/markdown.html#mermaid
+:vscode-homepage: https://code.visualstudio.com/
+:vscode-asciidoc-extension: https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode
+
+= bbb-docs
+Đây là kho lưu trữ tài liệu kĩ thuật cho dự án BicycleBlueBook (BBB).
+
+== Công cụ sử dụng
+=== Vẽ biểu đồ
+==== Tính năng có sẵn
+Với các dịch vụ Git hỗ trợ (như {github-supports-mermaidjs}[GitHub], {gitlab-supports-mermaidjs}[GitLab] chẳng hạn), mình sử dụng cú pháp {mermaidjs-docs}[mermaidjs] trong các tệp định dạng kiểu MarkDown (như `.md`, `.adoc`) được luôn.
+
+==== Mermaid Live
+Mình có thể sử dụng trang {mermaidjs-live}[này] để vẽ biểu đồ các thể loại và xuất ra ảnh (ưu tiên SVG để đảm bảo chất lượng).
+
+=== Soạn thảo
+==== Visual Studio Code
+Không cần phải nói nhiều, {vscode-homepage}[Visual Studio Code] (VS Code hay Code) là một phần mềm đơn giản, khá nhẹ, hỗ trợ rất tốt công việc soạn thảo, đặc biệt là viết tài liệu định dạng kiểu MarkDown. Với {adoc-homepage}[AsciiDoctor] (AsciiDoc hay adoc), mình nên cài thêm một tiện ích mở rộng {vscode-asciidoc-extension}[AsciiDoc] để hỗ trợ xem trước (preview) ngay tại trình soạn thảo, rất tiện.
+
+== Tài liệu tham khảo
+- Cú pháp AsciiDoctor: tại {adoc-docs}[đây].
+- Cú pháp Mermaid.js: tại {mermaidjs-docs}[đây].
