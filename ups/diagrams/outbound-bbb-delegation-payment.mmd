@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant Buyer
+    participant BBB
+    Buyer->>BBB: I want this bicycle, I'mma buy it!
+    BBB-->>Buyer: Yep, you gotta pay "this" total (including "this" shipping fee)!
+    Buyer-->>BBB: Dealt!
+    destroy Buyer
+    BBB-->>Buyer: Done!
+    Note over BBB: ...
+
+    create participant Seller
+    BBB->>Seller: Your bicycle has been bought! We'll track the shipment for you! Here's the tracking number!
+    Seller-->>BBB: Okay, now I can use this tracking number to see where my shipment is (via UPS site).
+    Note over Seller, BBB: UPS is responsible for delivering the shipment.

@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant Buyer
+    participant BBB
+    Buyer->>BBB: I want this bicycle, I'mma buy it!
+    BBB-->>Buyer: Yep, you gotta pay "this" total (including "this" shipping fee)!
+    Buyer-->>BBB: Dealt!
+    destroy Buyer
+    BBB-->>Buyer: Done!
+    Note over BBB: Related listing and inventory have been marked as "Sold".
+
+    create participant Seller
+    BBB->>Seller: Your bicycle has been bought!
+    alt Seller wants BBB to track his shipment
+        Seller-->>BBB: Okay, I've started delivering, you can use this number to track it!
+        BBB-->>Seller: Okay, let me handle this!
+        Note over BBB, Seller: The tracking number has been saved into BBB system.
+    else Seller don't want BBB to track his shipment
+        Seller-->>BBB: Okay, I know.
+    end

@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant BBB
+    participant UPS
+
+    loop periodically
+        BBB->>UPS: Hey, what's my shipments?
+        Note over BBB: BBB provides the tracking numbers.
+        UPS-->>BBB: Here you are!
+        BBB->>BBB: Verify stuff and update when necessary!
+    end
