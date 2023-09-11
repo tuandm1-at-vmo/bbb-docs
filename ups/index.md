@@ -7,6 +7,7 @@ date: 2023-09-06
 # UPS integration
 
 ## Abbreviation & Terminology
+
 Before jumping in this documentation, we have to understand what is:
 
 |Stuff|Meaning|
@@ -23,13 +24,16 @@ Before jumping in this documentation, we have to understand what is:
 We have 2 types of delivery consisting of Inbound shipping and Outbound shipping. In this documentation, we will focus on the Outbound shipping, i.e. the process of delivering a bicycle from a seller to a buyer, and of course, with using UPS service.
 
 ## Outbound Shipping
+
 ### Types
+
 At the moment I'd been writing this documentation, there're 2 types of Outbound shipping in BBB system:
 
 - Flat rate
 - BBB delegation
 
 #### Flat rate
+
 With this type of shipping, when a listing has been made, the seller specifies an amount of shipping fee to deliver his bicycle to up-coming buyer, and chooses a delivery provider who manages the shipment (or he can deliver the shipment himself). This fee is paid by the buyer and being the same no matter where the buyer is. BBB does not care about how the bicycle will be delivered.
 
 ![](images/outbound-flat-rate-listing.svg)
@@ -43,10 +47,10 @@ If there's no tracking number for a shipment, the bicycle has marked as "Sold" f
 - The buyer marks the listing as "I received it!", or
 - The seller marks the listing as "I shipped it!".
 
-_(Of course, the above messages are not exactly correct, but it's some kind of these.)_
-
+> _Of course, the above messages are not exactly correct, but it's some kind of these._
 
 #### BBB delegation
+
 With this type of shipping, when a listing has been made, the seller specifies that he wants BBB to deliver his bicycle to up-coming buyer. In this case, the seller has to pay a little fee for BBB and BBB will deliver his bicycle via UPS service. This fee is calculated based on the total price of the bicycle (5%, please considerably re-check this number).
 
 ![](images/outbound-bbb-delegation-listing.svg)
@@ -56,6 +60,7 @@ When a user buys this bicycle, he has to pay the shipping fee from the bicycle's
 ![](images/outbound-bbb-delegation-payment.svg)
 
 ### Shipment Tracking
+
 As long as BBB saves the tracking number of a shipment, we can track its related state via UPS service. The scheduling service `ScanTrackingStatusJob` will handle it.
 
 ![](images/outbound-shipment-tracking.svg)
