@@ -1,0 +1,86 @@
+{
+  "title": "Topstone Neo 5",
+  "uri": "https://www.cannondale.com/en/bikes/electric/e-road/topstone-neo/topstone-neo-5-smu",
+  "uniqueId": "42.63639$https://www.cannondale.com/en/bikes/electric/e-road/topstone-neo/topstone-neo-5-smu",
+  "raw": {
+    "salsifyid": "0375-2021-SMU",
+    "systitle": "Topstone Neo 5",
+    "subheader": "5",
+    "sysurihash": "ZcHm0ipR78dgqeOF",
+    "urihash": "ZcHm0ipR78dgqeOF",
+    "sysuri": "https://www.cannondale.com/en/bikes/electric/e-road/topstone-neo/topstone-neo-5-smu",
+    "colors": ["Black"],
+    "systransactionid": 521356,
+    "subcategory": "E-Road",
+    "brand": "Cannondale",
+    "msrp": 0,
+    "transactionid": 521356,
+    "title": "Topstone Neo 5",
+    "mainproductimage": "https://embed.widencdn.net/img/dorelrl/mshmauh49j/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_PD.png",
+    "productcarddescription": "An electric alloy gravel bike with Shimano GRX shifting & 70mi range Bosch motor",
+    "saleprice": 0,
+    "finalprice": 0,
+    "productimage3q": "https://embed.widencdn.net/img/dorelrl/prxso5vkas/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_3Q.png",
+    "header": "Topstone Neo",
+    "activemodelyear": "2021",
+    "size": 3513,
+    "category": ["Electric"],
+    "categories": [
+      "{675C41DA-3F83-42A5-9FA2-DD7A42260B12}",
+      "{F1902029-96F2-4665-A6D9-D9AB22679E1A}",
+      "{DD87270D-12A4-49C8-8585-F65EB493F799}",
+      "{A3F22CEC-88AC-4991-BC00-FF66245E630E}",
+      "{94210EA4-0750-40A9-AAC6-7E682CE039FD}",
+      "{6360E529-9AAC-4E45-B446-8DBB83E7C099}"
+    ],
+    "subtitle": "5",
+    "gender": "U",
+    "uri": "https://www.cannondale.com/en/bikes/electric/e-road/topstone-neo/topstone-neo-5-smu",
+    "variants": [
+      {
+        "sku": "C62561M10SM",
+        "colorName": "Black Pearl",
+        "colorSwatch": "BPL",
+        "colors": ["Black"],
+        "msrp": 0,
+        "salePrice": 0,
+        "finalPrice": 0,
+        "mainDetailImage": "https://embed.widencdn.net/img/dorelrl/mshmauh49j/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_PD.png",
+        "productImage3Q": "https://embed.widencdn.net/img/dorelrl/prxso5vkas/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_3Q.png"
+      },
+      {
+        "sku": "C62561M10MD",
+        "colorName": "Black Pearl",
+        "colorSwatch": "BPL",
+        "colors": ["Black"],
+        "msrp": 0,
+        "salePrice": 0,
+        "finalPrice": 0,
+        "mainDetailImage": "https://embed.widencdn.net/img/dorelrl/mshmauh49j/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_PD.png",
+        "productImage3Q": "https://embed.widencdn.net/img/dorelrl/prxso5vkas/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_3Q.png"
+      },
+      {
+        "sku": "C62561M10LG",
+        "colorName": "Black Pearl",
+        "colorSwatch": "BPL",
+        "colors": ["Black"],
+        "msrp": 0,
+        "salePrice": 0,
+        "finalPrice": 0,
+        "mainDetailImage": "https://embed.widencdn.net/img/dorelrl/mshmauh49j/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_PD.png",
+        "productImage3Q": "https://embed.widencdn.net/img/dorelrl/prxso5vkas/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_3Q.png"
+      },
+      {
+        "sku": "C62561M10XL",
+        "colorName": "Black Pearl",
+        "colorSwatch": "BPL",
+        "colors": ["Black"],
+        "msrp": 0,
+        "salePrice": 0,
+        "finalPrice": 0,
+        "mainDetailImage": "https://embed.widencdn.net/img/dorelrl/mshmauh49j/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_PD.png",
+        "productImage3Q": "https://embed.widencdn.net/img/dorelrl/prxso5vkas/2000px@1x/C21_C62561M_Topstone_Neo_5_BPL_3Q.png"
+      }
+    ]
+  }
+}

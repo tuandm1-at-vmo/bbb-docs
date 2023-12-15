@@ -1,0 +1,45 @@
+type QueryResultBike = {
+  title: string;
+  uri: string;
+  uniqueId: string;
+  raw: {
+    salsifyid: string;
+    title: string;
+    subtitle: string;
+    systitle: string;
+    header: string;
+    subheader: string;
+    sysurihash: string;
+    urihash: string;
+    sysuri: string;
+    uri: string;
+    colors: string[];
+    systransactionid: number;
+    transactionid: number;
+    tags: string[];
+    category: string[];
+    subcategory: string;
+    brand: string;
+    activemodelyear: string;
+    msrp: number;
+    saleprice: number;
+    finalprice: number;
+    mainproductimage: string;
+    productimage3q: string;
+    productcarddescription: string;
+    languagerelativeurl: string;
+    size: number;
+    gender: string;
+    variants: {
+      sku: string;
+      colorName: string;
+      colorSwatch: string;
+      colors: string[];
+      finalPrice: number;
+      salePrice: number;
+      msrp: number;
+      mainDetailImage: string;
+      productImage3Q: string;
+    }[];
+  };
+};
